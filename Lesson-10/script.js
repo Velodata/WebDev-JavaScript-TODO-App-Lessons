@@ -17,42 +17,7 @@ function setLoading(isLoading) {
     loadingIndicator.style.display = isLoading ? "block" : "none";
 }
 
-// Function to add a TODO via API with error handling
-function addTodo() {
-    const todoText = todoInput.value.trim();
-    if (todoText === "") {
-        showMessage("Please enter a valid TODO!", true);
-        return;
-    }
-
-    const newTodo = {
-        title: todoText,
-        completed: false,
-        userId: 1,
-    };
-
-    setLoading(true);
-    fetch("https://jsonplaceholder.typicode.com/todos", {
-        method: "POST",
-        body: JSON.stringify(newTodo),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("Failed to add TODO");
-        }
-        return response.json();
-    })
-    .then(todo => {
-        renderTodo(todo);
-        todoInput.value = "";
-        showMessage("TODO added successfully!");
-    })
-    .catch(error => showMessage(error.message, true))
-    .finally(() => setLoading(false));
-}
+// Insert Advanced Code here...
 
 // Function to render a TODO item
 function renderTodo(todo) {

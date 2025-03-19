@@ -78,36 +78,7 @@ function loadTodos() {
     todos.forEach(renderTodo);
 }
 
-// Update completion state in localStorage
-function updateCompletionInLocalStorage(todoText) {
-    let todos = JSON.parse(localStorage.getItem("todos")) || [];
-    todos = todos.map(todo => {
-        if (todo.text === todoText) {
-            todo.completed = !todo.completed;
-        }
-        return todo;
-    });
-    localStorage.setItem("todos", JSON.stringify(todos));
-}
-
-// Update TODO text in localStorage
-function updateTodoInLocalStorage(oldText, newText) {
-    let todos = JSON.parse(localStorage.getItem("todos")) || [];
-    todos = todos.map(todo => {
-        if (todo.text === oldText) {
-            todo.text = newText;
-        }
-        return todo;
-    });
-    localStorage.setItem("todos", JSON.stringify(todos));
-}
-
-// Remove TODO from localStorage
-function removeTodoFromLocalStorage(todoText) {
-    let todos = JSON.parse(localStorage.getItem("todos")) || [];
-    todos = todos.filter(todo => todo.text !== todoText);
-    localStorage.setItem("todos", JSON.stringify(todos));
-}
+// Insert Advanced Code here...
 
 // Event listeners
 addTodoButton.addEventListener("click", addTodo);

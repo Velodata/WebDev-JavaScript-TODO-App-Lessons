@@ -32,45 +32,7 @@ function addTodo() {
     .catch(error => console.error("Error adding TODO:", error));
 }
 
-// Function to render a TODO item
-function renderTodo(todo) {
-    const li = document.createElement("li");
-    li.textContent = todo.title;
-    li.dataset.id = todo.id;
-    if (todo.completed) {
-        li.classList.add("completed");
-    }
-
-    const updateButton = document.createElement("button");
-    updateButton.textContent = "Mark Complete";
-    updateButton.classList.add("update-btn");
-    updateButton.addEventListener("click", () => updateTodo(todo.id, li));
-
-    const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
-    deleteButton.classList.add("delete-btn");
-    deleteButton.addEventListener("click", () => deleteTodo(todo.id, li));
-
-    li.appendChild(updateButton);
-    li.appendChild(deleteButton);
-    todoList.appendChild(li);
-}
-
-// Function to update a TODO via API
-function updateTodo(todoId, li) {
-    fetch(`https://jsonplaceholder.typicode.com/todos/${todoId}`, {
-        method: "PUT",
-        body: JSON.stringify({ completed: true }),
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-    .then(response => response.json())
-    .then(() => {
-        li.classList.add("completed");
-    })
-    .catch(error => console.error("Error updating TODO:", error));
-}
+// Insert Advanced Code here...
 
 // Function to delete a TODO via API
 function deleteTodo(todoId, li) {

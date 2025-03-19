@@ -31,36 +31,7 @@ function renderTodo(todo) {
     todoList.appendChild(li);
 }
 
-// Function to toggle TODO completion and update localStorage
-function toggleComplete(event) {
-    event.target.classList.toggle("completed");
-    updateTodoInLocalStorage(event.target.textContent);
-}
-
-// Save TODO to localStorage
-function saveTodoToLocalStorage(todo) {
-    let todos = JSON.parse(localStorage.getItem("todos")) || [];
-    todos.push(todo);
-    localStorage.setItem("todos", JSON.stringify(todos));
-}
-
-// Load TODOs from localStorage
-function loadTodos() {
-    let todos = JSON.parse(localStorage.getItem("todos")) || [];
-    todos.forEach(renderTodo);
-}
-
-// Update completion state in localStorage
-function updateTodoInLocalStorage(todoText) {
-    let todos = JSON.parse(localStorage.getItem("todos")) || [];
-    todos = todos.map(todo => {
-        if (todo.text === todoText) {
-            todo.completed = !todo.completed;
-        }
-        return todo;
-    });
-    localStorage.setItem("todos", JSON.stringify(todos));
-}
+// Insert Advanced Code here....
 
 // Event listeners
 addTodoButton.addEventListener("click", addTodo);
